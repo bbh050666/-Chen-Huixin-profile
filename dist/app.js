@@ -7,7 +7,74 @@ wangdao:{kind:'RESEARCH / 望道项目',title:'青年“躺平”话语研究',p
 field:{kind:'RESEARCH / 数字田野',title:'“物”尽其言',paragraphs:['团队报告全称：“物”尽其言：数字时代老年人生活叙事困境与 AI 补齐路径调研。','研究以数字日记与深度访谈为主要方法，围绕老年人的生活叙事、记忆载体、代际传递及数字工具展开调研。','报告讨论了能力、工具与情感等维度的叙事困境，并探索 AI 辅助路径。我负责研究结论撰写。指导教师为陈岩燕，报告于 2026 年 2 月 23 日提交。'],note:'依据数字田野团队研究报告。此处为内容概览，不代表已发表学术论文。'},
 vlog:{kind:'SELECTED WRITING / 理论分析',title:'自律的镜与窗：学习 Vlog 中的双重规训',paragraphs:['这篇写作从“主动公开学习过程”这一现象出发，追问自律、平台可见性与自我呈现之间的关系。','文章借助福柯的规训理论与治理术概念，以“他者规训—自我规训”的分析框架讨论平台评价、镜头凝视与自我管理。','展示重点是问题意识、理论运用与学术写作；文中解释属于作者的分析，不作为已经验证的普遍规律呈现。'],note:'依据《学习Vlog中的双重规训》文稿；未标注为发表成果。'},
 spa:{kind:'SELECTED WRITING / 小组课程论文',title:'空间、实践与体验',paragraphs:['小组论文以“水裹”中大学生的消费实践为主题，关注同一个休闲空间中放松、自习、社交与过夜等实践如何并存。','论文采用参与式观察与半结构化深度访谈，尝试理解大学生选择这一空间的原因、空间体验及其日常意义。','本页展示研究问题与方法训练，不将个别场景中的观察推广为全部大学生的普遍行为。'],note:'依据《洗浴中心小组-期末论文》文稿。'}
-};
+ };
+
+// AI4SS portfolio layer: keep the original personal site intact while giving
+// recruiters a fast path into the projects most relevant to AI for Social Science.
+if(!document.querySelector('link[href="ai4ss.css"]')){
+ const stylesheet=document.createElement('link');stylesheet.rel='stylesheet';stylesheet.href='ai4ss.css';document.head.append(stylesheet);
+}
+const nav=document.querySelector('.nav');
+const academicNav=nav?.querySelector('a[href="#academic"]');
+if(academicNav&&!nav.querySelector('a[href="#ai4ss"]'))academicNav.insertAdjacentHTML('afterend','<a href="#ai4ss">AI4SS</a>');
+const heroPrimary=document.querySelector('.hero .primary');
+if(heroPrimary&&!document.querySelector('.portfolio-link'))heroPrimary.insertAdjacentHTML('afterend','<a class="portfolio-link" href="#ai4ss">AI4SS Portfolio <span aria-hidden="true">↘</span></a>');
+const academic=document.querySelector('#academic');
+if(academic&&!document.querySelector('#ai4ss'))academic.insertAdjacentHTML('afterend',`
+<section class="section ai4ss-section" id="ai4ss" aria-labelledby="ai4ss-title">
+ <div class="section-heading ai4ss-heading"><div><p class="eyebrow">FOCUS / AI FOR SOCIAL SCIENCE</p><h2 id="ai4ss-title">把社会科学问题，转化为可执行的研究流程。</h2></div><p>Selected AI4SS Portfolio</p></div>
+ <div class="glass ai4ss-intro">
+  <div><p class="small-label">SOCIOLOGY × AI</p><p class="ai4ss-lead">我关注的不只是“用 AI 做得更快”，而是如何保留社会科学的问题意识、证据标准与人工判断，再让数据分析和 AI 工具进入合适的环节。</p></div>
+  <div class="ai4ss-quicklinks" aria-label="AI4SS 快速入口">
+   <button type="button" data-ai4ss-print>Resume / 打印简历 <span aria-hidden="true">↗</span></button>
+   <a href="#ai4ss-cases">Selected Projects <span aria-hidden="true">↓</span></a>
+   <a href="#ai4ss-writing">Writing Samples <span aria-hidden="true">↓</span></a>
+  </div>
+ </div>
+ <div class="ai4ss-cases" id="ai4ss-cases">
+  <article class="glass ai4ss-case">
+   <div class="ai4ss-case-top"><span class="case-index">01</span><span class="pill accent">COMPUTATIONAL SOCIAL SCIENCE</span></div>
+   <h3>青年“躺平”话语研究</h3>
+   <p class="case-question">不同青年话语如何在社交媒体中发生语义迁移与概念漂移？</p>
+   <dl class="case-facts"><div><dt>My Role</dt><dd>项目负责人 · 研究设计与数据分析</dd></div><div><dt>Evidence</dt><dd>约 400 万条微博 → 350 万条核心语料</dd></div><div><dt>Method</dt><dd>数据采集、清洗、语义分析</dd></div></dl>
+   <button class="text-button" data-detail="wangdao">View research case <span aria-hidden="true">↗</span></button>
+  </article>
+  <article class="glass ai4ss-case">
+   <div class="ai4ss-case-top"><span class="case-index">02</span><span class="pill accent">HUMAN-CENTERED AI</span></div>
+   <h3>复旦 × 阿里社会服务 AI</h3>
+   <p class="case-question">如何把一线社工的真实工作痛点，转化为 AI 产品可以回应的需求？</p>
+   <dl class="case-facts"><div><dt>My Role</dt><dd>用户访谈 · 需求分析 · 产品建议</dd></div><div><dt>Evidence</dt><dd>12 家机构 · 30+ 社工 · 50+ 痛点</dd></div><div><dt>Method</dt><dd>访谈 → 结构化整理 → 需求转译</dd></div></dl>
+   <button class="text-button" data-detail="ali">View research case <span aria-hidden="true">↗</span></button>
+  </article>
+  <article class="glass ai4ss-case">
+   <div class="ai4ss-case-top"><span class="case-index">03</span><span class="pill accent">AI + QUALITATIVE RESEARCH</span></div>
+   <h3>“物”尽其言：数字田野</h3>
+   <p class="case-question">数字时代，老年人的生活叙事面临哪些困难，AI 可以在哪里提供支持？</p>
+   <dl class="case-facts"><div><dt>My Role</dt><dd>研究结论撰写</dd></div><div><dt>Evidence</dt><dd>数字日记 · 深度访谈材料</dd></div><div><dt>Method</dt><dd>质性材料分析 · AI 辅助路径探索</dd></div></dl>
+   <button class="text-button" data-detail="field">View research case <span aria-hidden="true">↗</span></button>
+  </article>
+ </div>
+ <article class="glass workflow-card" aria-labelledby="workflow-title">
+  <div class="workflow-copy"><p class="small-label">RESEARCH WORKFLOW</p><h3 id="workflow-title">Research Workflow · 我理解的 AI4SS</h3><p>AI 可以进入研究流程，但问题定义、证据判断和最终解释仍需要清晰的研究标准与人工审验。</p></div>
+  <div class="workflow-track" aria-label="AI4SS Research Workflow">
+   <div class="workflow-step"><span>01</span><strong>Question</strong><small>问题定义</small></div>
+   <div class="workflow-step"><span>02</span><strong>Retrieval</strong><small>资料检索</small></div>
+   <div class="workflow-step"><span>03</span><strong>Data</strong><small>数据处理</small></div>
+   <div class="workflow-step"><span>04</span><strong>Evidence</strong><small>证据整理</small></div>
+   <div class="workflow-step"><span>05</span><strong>Analysis</strong><small>分析综合</small></div>
+   <div class="workflow-step"><span>06</span><strong>Human Verification</strong><small>人工审验</small></div>
+   <div class="workflow-step"><span>07</span><strong>Output</strong><small>成果生成</small></div>
+  </div>
+ </article>
+ <div class="ai4ss-writing" id="ai4ss-writing">
+  <div class="writing-intro"><p class="small-label">SELECTED WRITING</p><h3>Writing Samples</h3><p>课程论文原文正在整理为可公开版本；目前可先查看研究问题、理论框架与方法概览。</p></div>
+  <div class="writing-links">
+   <button class="glass writing-link" data-detail="vlog"><span><small>THEORY / FOUCAULT</small><strong>自律的镜与窗</strong><em>学习 Vlog 中的双重规训</em></span><b aria-hidden="true">↗</b></button>
+   <button class="glass writing-link" data-detail="spa"><span><small>QUALITATIVE RESEARCH</small><strong>空间、实践与体验</strong><em>大学生消费实践研究</em></span><b aria-hidden="true">↗</b></button>
+  </div>
+ </div>
+</section>`);
+
 const dialog=document.querySelector('#detail');
 dialog.setAttribute('aria-labelledby','detail-title');
 let trigger;
@@ -24,6 +91,7 @@ dialog.querySelector('.close').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close()}});
 dialog.addEventListener('close',()=>{document.body.style.overflow='';trigger?.focus()});
 document.querySelector('#print').addEventListener('click',()=>window.print());
+for(const button of document.querySelectorAll('[data-ai4ss-print]'))button.addEventListener('click',()=>window.print());
 const navLinks=[...document.querySelectorAll('.nav a')];
 const observer=new IntersectionObserver(items=>{for(const item of items){if(item.isIntersecting){navLinks.forEach(a=>a.removeAttribute('aria-current'));navLinks.find(a=>a.hash==='#'+item.target.id)?.setAttribute('aria-current','location')}}},{rootMargin:'-15% 0px -60% 0px',threshold:0});
 for(const section of document.querySelectorAll('main section[id]'))observer.observe(section);
